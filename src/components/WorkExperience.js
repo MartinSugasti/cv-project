@@ -13,7 +13,7 @@ class WorkExperience extends Component {
           startDate: '2022-02',
           endDate: '',
           location: 'Montevideo, Uruguay',
-          description: 'Since joining the team, I have worked as a full-stack developer using Ruby on Rails framework. Alongside RoR, I have gained experience with other languages and development tools such as React.'
+          description: 'I join the company to continue working with Ruby on Rails, my favorite language and in which I want to continue improving. One of the main reasons I joined Vairix was because I also had the opportunity to start learning and working with React.'
         },
         {
           position: 'Full Stack Developer',
@@ -55,7 +55,6 @@ class WorkExperience extends Component {
   }
 
   addItem(item) {
-    console.log(item)
     this.setState({
       items: [...this.state.items, item]
     });
