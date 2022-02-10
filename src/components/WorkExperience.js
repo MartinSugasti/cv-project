@@ -76,7 +76,7 @@ class WorkExperience extends Component {
     return (
       <div className="card-body py-0">
         <h3 className="mt-3 mb-0 text-md-left">
-          <i className="fas fa-university mr-1"></i>
+          <i className="fas fa-hard-hat mr-1"></i>
             Work Experience
           <i className="fas fa-plus-circle fa-xs ml-2" data-toggle="modal" data-target="#newWorkExperienceItemModal"></i>
         </h3>
