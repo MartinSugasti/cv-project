@@ -46,7 +46,7 @@ class AboutMe extends Component {
           <i className="fas fa-user mr-1"></i>
           About Me
           <span role="button" onClick={this.editInput}>
-            <i className="fas fa-plus-circle fa-xs ml-2"></i>
+            <i className="fas fa-edit fa-xs ml-2"></i>
           </span>
         </h3>
 
