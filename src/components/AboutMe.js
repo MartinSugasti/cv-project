@@ -50,9 +50,11 @@ class AboutMe extends Component {
           </span>
         </h3>
 
-        <p className="mt-2 mb-0 text-md-left">
-          {valueElement}
-        </p>
+        {valueElement !== '' &&
+          <p className="mt-2 mb-0 text-md-left">
+            {valueElement}
+          </p>
+        }
       </div>
     );
   }
