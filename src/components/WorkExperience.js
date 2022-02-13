@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import WorkExperienceModal from './WorkExperienceModal'
 
 class WorkExperience extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       items: [

@@ -31,7 +31,7 @@ class SpecificReferences extends Component {
         <h3>
           <i className="fas fa-asterisk mr-1"></i>
             {this.props.title} References
-          <i className="fas fa-plus-circle fa-xs ml-2" data-toggle="modal" data-target="#newReferenceModal"></i>
+          <i className="fas fa-plus-circle fa-xs ml-2" data-toggle="modal" data-target={`#new${this.props.title}ReferenceModal`}></i>
         </h3>
 
         {this.state.references.map((item, index) => {

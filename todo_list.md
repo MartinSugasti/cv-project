@@ -1,7 +1,5 @@
 Code:
 - Components refactors: several components do the same. Add items, remove items and render.
-- Components clean up: I realize some components do not use state, but it's 'defined' in the constructor.
-- Default values: set different values in a more properly way.
 
 Users features:
 - Users: employees and recruiters.
