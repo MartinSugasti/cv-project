@@ -4,13 +4,6 @@ class EducationModal extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      degree: '',
-      school: '',
-      startDate: '',
-      endDate: ''
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 

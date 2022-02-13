@@ -4,15 +4,6 @@ class WorkExperienceModal extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      position: '',
-      company: '',
-      startDate: '',
-      endDate: '',
-      location: '',
-      description: ''
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 

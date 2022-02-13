@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class AboutMe extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       value: "I am an industrial engineer, with experience working in supply chain. However, due to vocational preferences, I decided on a change in my professional profile and started studying Software Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I moved to Barcelona in August 2021 with my partner.",

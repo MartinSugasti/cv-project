@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import SkillModal from './SkillModal'
 
 class Skills extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       primarySkills: ['Rails', 'React', 'Scrum'],
