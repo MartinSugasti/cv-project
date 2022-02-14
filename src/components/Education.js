@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import EducationModal from './EducationModal'
+import { Component } from 'react';
+import EducationModal from './EducationModal';
 
 class Education extends Component {
   constructor(props) {
@@ -11,36 +11,36 @@ class Education extends Component {
           degree: 'Software Engineering',
           school: 'Engineering Faculty, UDELAR',
           startDate: '2018',
-          endDate: ''
+          endDate: '',
         },
         {
           degree: 'Industrial and Mechanical Engineering',
           school: 'Engineering Faculty, UDELAR',
           startDate: '2009',
-          endDate: '2015'
+          endDate: '2015',
         },
         {
           degree: 'First Certificate in English',
           school: 'University of Cambridge',
           startDate: '2000',
-          endDate: '2008'
-        }
-      ]
+          endDate: '2008',
+        },
+      ],
     };
 
-    this.addItem = this.addItem.bind(this)
-    this.removeItem = this.removeItem.bind(this)
+    this.addItem = this.addItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
   addItem(item) {
     this.setState({
-      items: [...this.state.items, item]
+      items: [...this.state.items, item],
     });
   }
 
   removeItem(indexToRemove) {
     this.setState({
-      items: this.state.items.filter((_, index) => index !== indexToRemove)
+      items: this.state.items.filter((_, index) => index !== indexToRemove),
     });
   }
 
@@ -50,7 +50,11 @@ class Education extends Component {
         <h3 className="mt-3 mb-0 text-md-left">
           <i className="fas fa-university mr-1"></i>
           Education
-          <i className="fas fa-plus-circle fa-xs ml-2" data-toggle="modal" data-target="#newEducationItemModal"></i>
+          <i
+            className="fas fa-plus-circle fa-xs ml-2"
+            data-toggle="modal"
+            data-target="#newEducationItemModal"
+          ></i>
         </h3>
 
         {this.state.items.map((item, index) => {
@@ -63,9 +67,11 @@ class Education extends Component {
                 </span>
               </p>
               <p className="col-12 col-md-5 mb-0">{item.school}</p>
-              <p className="col-12 col-md-3 mb-0 font-weight-bold text-md-right">{item.startDate} - {item.endDate ? item.endDate : 'Present'}</p>
+              <p className="col-12 col-md-3 mb-0 font-weight-bold text-md-right">
+                {item.startDate} - {item.endDate ? item.endDate : 'Present'}
+              </p>
             </div>
-          )
+          );
         })}
 
         <EducationModal addItem={this.addItem} />

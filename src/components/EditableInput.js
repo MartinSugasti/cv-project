@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class EditableInput extends Component {
   constructor(props) {
@@ -6,38 +6,47 @@ class EditableInput extends Component {
 
     this.state = {
       value: props.value,
-      editing: false
+      editing: false,
     };
 
-    this.editInput = this.editInput.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.inputFocusOut = this.inputFocusOut.bind(this)
+    this.editInput = this.editInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.inputFocusOut = this.inputFocusOut.bind(this);
   }
 
   editInput() {
     this.setState({
-      editing: true
+      editing: true,
     });
   }
 
   handleChange(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
     });
   }
 
   inputFocusOut() {
     this.setState({
-      editing: false
+      editing: false,
     });
   }
 
   render() {
-    let valueElement
+    let valueElement;
     if (this.state.editing) {
-      valueElement = <input type="text" className="mw-100" value={this.state.value} onChange={this.handleChange} onBlur={this.inputFocusOut} autoFocus />
+      valueElement = (
+        <input
+          type="text"
+          className="mw-100"
+          value={this.state.value}
+          onChange={this.handleChange}
+          onBlur={this.inputFocusOut}
+          autoFocus
+        />
+      );
     } else {
-      valueElement = this.state.value
+      valueElement = this.state.value;
     }
 
     return (
