@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import ReferenceModal from './ReferenceModal'
+import { Component } from 'react';
+import ReferenceModal from './ReferenceModal';
 
 class SpecificReferences extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      references: this.props.defaultReferences
+      references: this.props.defaultReferences,
     };
 
-    this.addItem = this.addItem.bind(this)
-    this.removeItem = this.removeItem.bind(this)
+    this.addItem = this.addItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
   addItem(item) {
     this.setState({
-      references: [...this.state.references, item]
+      references: [...this.state.references, item],
     });
   }
 
   removeItem(indexToRemove) {
     this.setState({
-      references: this.state.references.filter((_, index) => index !== indexToRemove)
+      references: this.state.references.filter((_, index) => index !== indexToRemove),
     });
   }
 
@@ -30,8 +30,12 @@ class SpecificReferences extends Component {
       <div className="col-12 col-md-6 mt-3 text-md-left">
         <h3>
           <i className="fas fa-asterisk mr-1"></i>
-            {this.props.title} References
-          <i className="fas fa-plus-circle fa-xs ml-2" data-toggle="modal" data-target={`#new${this.props.title}ReferenceModal`}></i>
+          {this.props.title} References
+          <i
+            className="fas fa-plus-circle fa-xs ml-2"
+            data-toggle="modal"
+            data-target={`#new${this.props.title}ReferenceModal`}
+          ></i>
         </h3>
 
         {this.state.references.map((item, index) => {
@@ -47,7 +51,7 @@ class SpecificReferences extends Component {
               <p className="col-12 col-md-6 mb-0">{item.company}</p>
               <p className="col-12 col-md-6 mb-0 text-md-left">{item.position}</p>
             </div>
-          )
+          );
         })}
 
         <ReferenceModal title={this.props.title} addItem={this.addItem} />

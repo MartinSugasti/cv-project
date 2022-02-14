@@ -1,43 +1,53 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class AboutMe extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: "I am an industrial engineer, with experience working in supply chain. However, due to vocational preferences, I decided on a change in my professional profile and started studying Software Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I moved to Barcelona in August 2021 with my partner.",
-      editing: false
+      value:
+        'I am an industrial engineer, with experience working in supply chain. However, due to vocational preferences, I decided on a change in my professional profile and started studying Software Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I moved to Barcelona in August 2021 with my partner.',
+      editing: false,
     };
 
-    this.editInput = this.editInput.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.inputFocusOut = this.inputFocusOut.bind(this)
+    this.editInput = this.editInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.inputFocusOut = this.inputFocusOut.bind(this);
   }
 
   editInput() {
     this.setState({
-      editing: true
+      editing: true,
     });
   }
 
   handleChange(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
     });
   }
 
   inputFocusOut() {
     this.setState({
-      editing: false
+      editing: false,
     });
   }
 
   render() {
-    let valueElement
+    let valueElement;
     if (this.state.editing) {
-      valueElement = <textarea className="w-100" rows="5" value={this.state.value} onChange={this.handleChange} onBlur={this.inputFocusOut} autoFocus />
+      valueElement = (
+        <textarea
+          className="w-100"
+          rows="5"
+          value={this.state.value}
+          onChange={this.handleChange}
+          onBlur={this.inputFocusOut}
+          autoFocus
+        />
+      );
     } else {
-      valueElement = this.state.value
+      valueElement = this.state.value;
     }
 
     return (
@@ -50,11 +60,7 @@ class AboutMe extends Component {
           </span>
         </h3>
 
-        {valueElement !== '' &&
-          <p className="mt-2 mb-0 text-md-left">
-            {valueElement}
-          </p>
-        }
+        {valueElement !== '' && <p className="mt-2 mb-0 text-md-left">{valueElement}</p>}
       </div>
     );
   }
