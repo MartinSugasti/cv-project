@@ -1,69 +1,52 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-class AboutMe extends Component {
-  constructor(props) {
-    super(props);
+const AboutMe = () => {
+  const [value, setValue] = useState(
+    'I am an industrial engineer, with experience working in supply chain. However, due to vocational preferences, I decided on a change in my professional profile and started studying Software Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I moved to Barcelona in August 2021 with my partner.'
+  );
+  const [editing, setEditing] = useState(false);
 
-    this.state = {
-      value:
-        'I am an industrial engineer, with experience working in supply chain. However, due to vocational preferences, I decided on a change in my professional profile and started studying Software Engineering and working as a full-stack developer. As a personal challenge and in search of new experiences, I moved to Barcelona in August 2021 with my partner.',
-      editing: false,
-    };
-
-    this.editInput = this.editInput.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.inputFocusOut = this.inputFocusOut.bind(this);
+  function editInput() {
+    setEditing(true);
   }
 
-  editInput() {
-    this.setState({
-      editing: true,
-    });
+  function handleChange(event) {
+    setValue(event.target.value);
   }
 
-  handleChange(event) {
-    this.setState({
-      value: event.target.value,
-    });
+  function inputFocusOut() {
+    setEditing(false);
   }
 
-  inputFocusOut() {
-    this.setState({
-      editing: false,
-    });
-  }
-
-  render() {
-    let valueElement;
-    if (this.state.editing) {
-      valueElement = (
-        <textarea
-          className="w-100"
-          rows="5"
-          value={this.state.value}
-          onChange={this.handleChange}
-          onBlur={this.inputFocusOut}
-          autoFocus
-        />
-      );
-    } else {
-      valueElement = this.state.value;
-    }
-
-    return (
-      <div className="card-body py-0">
-        <h3 className="mt-3 mb-0 text-md-left">
-          <i className="fas fa-user mr-1"></i>
-          About Me
-          <span role="button" onClick={this.editInput}>
-            <i className="fas fa-edit fa-xs ml-2"></i>
-          </span>
-        </h3>
-
-        {valueElement !== '' && <p className="mt-2 mb-0 text-md-left">{valueElement}</p>}
-      </div>
+  let valueElement;
+  if (editing) {
+    valueElement = (
+      <textarea
+        className="w-100"
+        rows="5"
+        value={value}
+        onChange={handleChange}
+        onBlur={inputFocusOut}
+        autoFocus
+      />
     );
+  } else {
+    valueElement = value;
   }
-}
+
+  return (
+    <div className="card-body py-0">
+      <h3 className="mt-3 mb-0 text-md-left">
+        <i className="fas fa-user mr-1"></i>
+        About Me
+        <span role="button" onClick={editInput}>
+          <i className="fas fa-edit fa-xs ml-2"></i>
+        </span>
+      </h3>
+
+      {valueElement !== '' && <p className="mt-2 mb-0 text-md-left">{valueElement}</p>}
+    </div>
+  );
+};
 
 export default AboutMe;

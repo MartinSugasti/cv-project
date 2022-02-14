@@ -1,63 +1,45 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-class EditableInput extends Component {
-  constructor(props) {
-    super(props);
+const EditableInput = ({ initialValue }) => {
+  const [value, setValue] = useState(initialValue);
+  const [editing, setEditing] = useState(false);
 
-    this.state = {
-      value: props.value,
-      editing: false,
-    };
-
-    this.editInput = this.editInput.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.inputFocusOut = this.inputFocusOut.bind(this);
+  function editInput() {
+    setEditing(true);
   }
 
-  editInput() {
-    this.setState({
-      editing: true,
-    });
+  function handleChange(event) {
+    setValue(event.target.value);
   }
 
-  handleChange(event) {
-    this.setState({
-      value: event.target.value,
-    });
+  function inputFocusOut() {
+    setEditing(false);
   }
 
-  inputFocusOut() {
-    this.setState({
-      editing: false,
-    });
-  }
-
-  render() {
-    let valueElement;
-    if (this.state.editing) {
-      valueElement = (
-        <input
-          type="text"
-          className="mw-100"
-          value={this.state.value}
-          onChange={this.handleChange}
-          onBlur={this.inputFocusOut}
-          autoFocus
-        />
-      );
-    } else {
-      valueElement = this.state.value;
-    }
-
-    return (
-      <div>
-        {valueElement}
-        <span role="button" onClick={this.editInput}>
-          <i className="fas fa-edit fa-sm ml-2"></i>
-        </span>
-      </div>
+  let valueElement;
+  if (editing) {
+    valueElement = (
+      <input
+        type="text"
+        className="mw-100"
+        value={value}
+        onChange={handleChange}
+        onBlur={inputFocusOut}
+        autoFocus
+      />
     );
+  } else {
+    valueElement = value;
   }
-}
+
+  return (
+    <div>
+      {valueElement}
+      <span role="button" onClick={editInput}>
+        <i className="fas fa-edit fa-sm ml-2"></i>
+      </span>
+    </div>
+  );
+};
 
 export default EditableInput;
