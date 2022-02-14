@@ -1,13 +1,5 @@
-import { Component } from 'react';
-
-class WorkExperienceModal extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(addItem, event) {
+const WorkExperienceModal = ({ addItem }) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     // create item and add it to the items list
@@ -41,142 +33,137 @@ class WorkExperienceModal extends Component {
     document.body.classList.remove('modal-open');
   }
 
-  render() {
-    return (
-      <div
-        className="modal fade"
-        id="newWorkExperienceItemModal"
-        tabIndex="-1"
-        aria-labelledby="newWorkExperienceItem"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content text-dark">
-            <form
-              id="newWorkExperienceItemForm"
-              onSubmit={this.handleSubmit.bind(this, this.props.addItem)}
-            >
-              <div className="modal-header text-center">
-                <h3 className="modal-title w-100">Work Experience</h3>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+  return (
+    <div
+      className="modal fade"
+      id="newWorkExperienceItemModal"
+      tabIndex="-1"
+      aria-labelledby="newWorkExperienceItem"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content text-dark">
+          <form id="newWorkExperienceItemForm" onSubmit={handleSubmit}>
+            <div className="modal-header text-center">
+              <h3 className="modal-title w-100">Work Experience</h3>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-              <div className="modal-body pb-0">
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-position"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Position:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="new-work-experience-item-position"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-company"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Company:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="new-work-experience-item-company"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-start-date"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Start:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="month"
-                      className="form-control"
-                      id="new-work-experience-item-start-date"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-end-date"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    End:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="month"
-                      className="form-control"
-                      id="new-work-experience-item-end-date"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-location"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Location:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="new-work-experience-item-location"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-work-experience-item-description"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Description:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <textarea
-                      className="form-control"
-                      id="new-work-experience-item-description"
-                      rows="5"
-                      required="required"
-                    />
-                  </div>
+            <div className="modal-body pb-0">
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-position"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Position:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="new-work-experience-item-position"
+                    required="required"
+                  />
                 </div>
               </div>
 
-              <div className="modal-footer justify-content-center">
-                <button type="submit" className="btn btn-dark">
-                  Add
-                </button>
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-company"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Company:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="new-work-experience-item-company"
+                    required="required"
+                  />
+                </div>
               </div>
-            </form>
-          </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-start-date"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Start:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="month"
+                    className="form-control"
+                    id="new-work-experience-item-start-date"
+                    required="required"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-end-date"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  End:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="month"
+                    className="form-control"
+                    id="new-work-experience-item-end-date"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-location"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Location:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="new-work-experience-item-location"
+                    required="required"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-work-experience-item-description"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Description:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <textarea
+                    className="form-control"
+                    id="new-work-experience-item-description"
+                    rows="5"
+                    required="required"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-footer justify-content-center">
+              <button type="submit" className="btn btn-dark">
+                Add
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default WorkExperienceModal;

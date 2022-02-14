@@ -1,13 +1,5 @@
-import { Component } from 'react';
-
-class EducationModal extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(addItem, event) {
+const EducationModal = ({ addItem }) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     // create item and add it to the items list
@@ -37,114 +29,109 @@ class EducationModal extends Component {
     document.body.classList.remove('modal-open');
   }
 
-  render() {
-    return (
-      <div
-        className="modal fade"
-        id="newEducationItemModal"
-        tabIndex="-1"
-        aria-labelledby="newEducationItem"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content text-dark">
-            <form
-              id="newEducationItemForm"
-              onSubmit={this.handleSubmit.bind(this, this.props.addItem)}
-            >
-              <div className="modal-header text-center">
-                <h3 className="modal-title w-100">Education</h3>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+  return (
+    <div
+      className="modal fade"
+      id="newEducationItemModal"
+      tabIndex="-1"
+      aria-labelledby="newEducationItem"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content text-dark">
+          <form id="newEducationItemForm" onSubmit={handleSubmit}>
+            <div className="modal-header text-center">
+              <h3 className="modal-title w-100">Education</h3>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-              <div className="modal-body pb-0">
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-education-item-degree"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Degree:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="new-education-item-degree"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-education-item-school"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    School:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="new-education-item-school"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-education-item-start-date"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    Start:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="number"
-                      className="form-control"
-                      id="new-education-item-start-date"
-                      min="1970"
-                      max="2030"
-                      step="1"
-                      required="required"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="new-education-item-end-date"
-                    className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
-                  >
-                    End:
-                  </label>
-                  <div className="col-12 col-sm-6">
-                    <input
-                      type="number"
-                      className="form-control"
-                      id="new-education-item-end-date"
-                      min="1970"
-                      max="2030"
-                      step="1"
-                    />
-                  </div>
+            <div className="modal-body pb-0">
+              <div className="form-group row">
+                <label
+                  htmlFor="new-education-item-degree"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Degree:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="new-education-item-degree"
+                    required="required"
+                  />
                 </div>
               </div>
 
-              <div className="modal-footer justify-content-center">
-                <button type="submit" className="btn btn-dark">
-                  Add
-                </button>
+              <div className="form-group row">
+                <label
+                  htmlFor="new-education-item-school"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  School:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="new-education-item-school"
+                    required="required"
+                  />
+                </div>
               </div>
-            </form>
-          </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-education-item-start-date"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  Start:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="new-education-item-start-date"
+                    min="1970"
+                    max="2030"
+                    step="1"
+                    required="required"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group row">
+                <label
+                  htmlFor="new-education-item-end-date"
+                  className="col-form-label col-12 col-sm-4 text-sm-right mr-2"
+                >
+                  End:
+                </label>
+                <div className="col-12 col-sm-6">
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="new-education-item-end-date"
+                    min="1970"
+                    max="2030"
+                    step="1"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-footer justify-content-center">
+              <button type="submit" className="btn btn-dark">
+                Add
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default EducationModal;
